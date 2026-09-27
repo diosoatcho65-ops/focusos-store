@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FocusOS — Student Planner</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f4ed;color:#14213d;font-family:Arial,sans-serif}
+.wrap{max-width:760px;margin:auto;padding:24px 16px 50px}.hero{text-align:center;padding:30px 10px}
+.badge{color:#00a896;font-weight:800;letter-spacing:1px;font-size:13px}
+h1{font-size:42px;margin:12px 0}.sub{color:#667085;line-height:1.6}
+.card{background:#fff;border:1px solid #e1e3e7;border-radius:20px;padding:24px;margin:18px 0;box-shadow:0 8px 30px #14213d10}
+.price{font-size:34px;font-weight:800;margin:8px 0}.features{line-height:2}
+button{width:100%;padding:15px;border:0;border-radius:12px;background:#14213d;color:#fff;font-weight:800;font-size:16px}
+input,textarea{width:100%;padding:13px;margin:7px 0 14px;border:1px solid #d7dbe0;border-radius:10px;font-size:15px}
+.note{background:#e8f5f2;padding:14px;border-radius:12px;color:#14213d;line-height:1.5}
+.small{font-size:12px;color:#667085;text-align:center;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="badge">FOCUSOS • STUDENT EDITION</div>
+<h1>STUDENT PLANNER</h1>
+<p class="sub">A simple system for turning “I should study” into “I studied.”</p>
+</section>
+
+<section class="card">
+<h2>Plan → Focus → Capture → Review</h2>
+<p class="sub">A printable 15-page study system designed to help students turn vague study plans into clear next actions.</p>
+<ul class="features">
+<li>Weekly Dashboard</li><li>Daily Focus Pages</li><li>Focus Sessions</li><li>Exam Sprint</li>
+<li>Distraction Reset</li><li>Weekly Review</li><li>Notes & reflection</li>
+</ul>
+<div class="price">৳99</div>
+<button onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">ORDER NOW</button>
+</section>
+
+<section class="card" id="order">
+<h2>Place Your Order</h2>
+<label>Name</label><input id="name" placeholder="Your name">
+<label>Contact</label><input id="contact" placeholder="Messenger / phone / email">
+<label>Message</label><textarea id="msg" rows="3" placeholder="Optional"></textarea>
+<div class="note"><b>Payment:</b> Payment instructions will be provided after order submission. Final PDF is delivered only after payment is verified.</div>
+<br>
+<button onclick="submitOrder()">SUBMIT ORDER</button>
+<p id="result" class="small"></p>
+</section>
+
+<p class="small">FocusOS Student Edition • Digital PDF • Undated</p>
+</div>
+<script>
+function submitOrder(){
+ const n=document.getElementById('name').value.trim(), c=document.getElementById('contact').value.trim();
+ if(!n||!c){alert('Please enter your name and contact.');return}
+ const id='FOCUS-'+Date.now().toString().slice(-8);
+ document.getElementById('result').innerHTML='Order created: <b>'+id+'</b><br>Send this order ID when contacting the seller.';
+}
+</script>
+</body>
+</html>
